@@ -65,17 +65,33 @@ def create_survey(request):
 	f.write(date)
 	f.write("\n")
 	f.close()
-	wb=load_workbook("data.xlsx")
-	ws=wb.worksheets[0]
-	# ws.append
-	# for col_num in range(0,len(datas)):
-    #     ws.write(row_num, col_num, request.session['Q%d'%col_num], font_style)
 	exceldata=datas
 	exceldata.append(date)
-	row=ws.max_row
-	for i in range(0,len(exceldata)):
-		ws.cell(row=row+1,column=i+1).value=exceldata[i]
-	wb.save("data.xlsx")
+	if os.path.isfile('./data.xlsx')==False:    
+		wb = xlsxwriter.Workbook('data.xlsx')
+		ws = wb.add_worksheet()
+		
+		row = 0
+		col = 0
+		
+		for i in range(1,len(exceldata)):
+			ws.write(row, i-1, "V%d"%i)
+		ws.write(row,len(exceldata)-1,"datetime")
+		wb.close()
+		wb=load_workbook("data.xlsx")
+		ws=wb.worksheets[0]   
+		row=ws.max_row
+		for i in range(0,len(exceldata)):
+			ws.cell(row=row+1,column=i+1).value=exceldata[i]
+		ws.cell(row=row+1,column=len(exceldata))
+		wb.save("data.xlsx")
+	else:
+		wb=load_workbook("data.xlsx")
+		ws=wb.worksheets[0]
+		row=ws.max_row
+		for i in range(0,len(exceldata)):
+			ws.cell(row=row+1,column=i+1).value=exceldata[i]
+		wb.save("data.xlsx")
 	return render(request,'ABCquestionnaire/result.html',{"datas":datas})
 
 # def clean(self):
