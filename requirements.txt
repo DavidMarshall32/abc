@@ -1,0 +1,11 @@
+numpy==1.14.3
+setuptools==39.1.0
+xhtml2pdf==0.2.2
+six==1.11.0
+pandas==0.23.0
+xlwt==1.2.0
+openpyxl==2.5.3
+xlrd==1.1.0
+Django==2.0
+matplotlib==2.2.2
+adjustText==0.7.3
