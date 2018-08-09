@@ -9,4 +9,3 @@ xlrd==1.1.0
 Django==2.0
 matplotlib==2.2.2
 adjustText==0.7.3
-XlsxWriter==1.0.4
