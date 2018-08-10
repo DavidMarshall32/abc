@@ -3,15 +3,11 @@
   // window.location.hash="no-back-button";
   // window.location.hash="again-no-back-button";//again because google chrome don't insert first hash into history
   // window.onhashchange=function(){window.location.hash="no-back-button";} 
-  if( window.history && window.history.pushState ){
-      history.pushState( "nohb", null, "" );
-      $(window).on( "popstate", function(event){
-          if( !event.originalEvent.state ){
-          history.pushState( "nohb", null, "" );
-          return;
-          }
-      });
-}  
+  history.pushState(null, document.title, location.href);
+  window.addEventListener('popstate', function (event)
+  {
+    history.pushState(null, document.title, location.href);
+  });; 
   </script>
     <title>Questionnaire</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
