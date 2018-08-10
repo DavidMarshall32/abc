@@ -24,7 +24,7 @@ SECRET_KEY = 'h^=)(vi^-)e#wgklj9kk0jv&+#&d+8f&5qm9*k76hxa%7-7zm2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['abc-questionnaire.apps.cs.cf.ac.uk','localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['abc-studentquestionnaire.apps.cs.cf.ac.uk','localhost', '127.0.0.1']
 
 # EMAIL_USE_TLS=True
 # EMAIL_HOST='smtp.gmail.com'
